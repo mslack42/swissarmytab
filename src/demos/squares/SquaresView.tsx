@@ -20,6 +20,7 @@ export type SquaresViewProps = {
   panelData: SquareData[];
   onSquaresLayoutChanged?: (api: DockviewApi) => void;
   onSquareAdd?: (panel: IDockviewPanel) => void;
+  onSquaresRemoval?: (panelIds: string[]) => void;
 };
 
 function DockViewPropsFromProps(
@@ -60,6 +61,7 @@ export function SquaresView({
   panelData,
   onSquaresLayoutChanged,
   onSquareAdd,
+  onSquaresRemoval
 }: SquaresViewProps) {
   const [components, defaultPanelConfig] = DockViewPropsFromProps({
     gridJSON,
@@ -76,7 +78,7 @@ export function SquaresView({
       return;
     }
 
-    const layoutDisposable = api.onDidLayoutChange(() => {
+    const layoutDisposable = api.onDidLayoutChange((e) => {
       if (onSquaresLayoutChanged) {
         onSquaresLayoutChanged(api);
       }
@@ -102,6 +104,28 @@ export function SquaresView({
       panelAddDisposable.dispose();
     };
   }, [api, onSquareAdd]);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    const removePanelDisposable = api.onDidRemovePanel((e) => {
+      if (onSquaresRemoval) {
+        onSquaresRemoval([e.id])
+      }
+    });
+    const removeGroupDisposable = api.onDidRemoveGroup((e) => {
+      if (onSquaresRemoval) {
+        onSquaresRemoval(e.panels.map(p => p.id))
+      }
+    });
+
+    return () => {
+      removePanelDisposable.dispose();
+      removeGroupDisposable.dispose();
+    };
+  }, [api]);
 
   useEffect(() => {
     if (!api) {

@@ -1,9 +1,12 @@
 import {store} from "@/store/store"
-import { addPanel, storeGridJSON } from "./slices/squaresSlice"
+import { addPanel, deletePanels, storeGridJSON } from "./slices/squaresSlice"
 import {v4 as uuidv4} from 'uuid'
 import { DockviewApi, IDockviewHeaderActionsProps, IDockviewPanel } from "dockview"
 
 export class SquaresService {
+    initialConfiguration = () => {
+      return store.getState().squares
+    }
     addSquare = (props: IDockviewHeaderActionsProps) => {
         const newPanelId = uuidv4()
         // TODO: find a unique new tab name
@@ -21,7 +24,10 @@ export class SquaresService {
         store.dispatch(addPanel({id:panel.id,name:panel.title ?? ""}))
     }
     storeLayout = (api:DockviewApi) => {
-      store.dispatch(storeGridJSON(JSON.stringify(api.toJSON())))
+      store.dispatch(storeGridJSON(JSON.stringify(api.toJSON().grid)))
+    }
+    removeSquaresFromStore = (ids: string[]) => {
+      store.dispatch(deletePanels(ids))
     }
 }
 const squaresService = new SquaresService()

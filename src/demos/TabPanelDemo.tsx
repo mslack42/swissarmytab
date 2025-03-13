@@ -1,35 +1,34 @@
 import { DockviewApi, IDockviewPanel } from "dockview";
 import "./dockview.css";
 import { SquaresView, SquaresViewProps } from "./squares/SquaresView";
-import { useAppSelector } from "@/store/hooks";
-import { selectSquares } from "@/store/slices/squaresSlice";
 import { squaresService } from "@/store/squaresService";
 import { useEffect, useState } from "react";
 
 export function TabPanelDemo() {
-  const squaresData = useAppSelector(selectSquares);
+  const squaresData = squaresService.initialConfiguration()
   const [initialSquaresData] = useState(squaresData)
 
   const [config, setConfig] = useState<SquaresViewProps>();
-  const [initialised, setInitialised] = useState(false)
 
   useEffect(() => {
-    if (!initialised) {
-      // const onSquareAdd = (panel: IDockviewPanel) =>
-      //   squaresService.addNewSquareToStore(panel);
-      // const onLayoutChange = (api: DockviewApi) => {
-      //   squaresService.storeLayout(api)
-      // }
+      const onSquareAdd = (panel: IDockviewPanel) =>
+        squaresService.addNewSquareToStore(panel);
+      const onLayoutChange = (api: DockviewApi) => {
+        squaresService.storeLayout(api)
+      }
+      const onSquaresDelete = (ids: string[]) => {
+        squaresService.removeSquaresFromStore(ids)
+      }
   
       setConfig({
         gridJSON: initialSquaresData.gridJSON,
         panelData: initialSquaresData.panelData,
-        // onSquareAdd: onSquareAdd,
-        // onSquaresLayoutChanged: onLayoutChange
+        onSquareAdd: onSquareAdd,
+        onSquaresLayoutChanged: onLayoutChange,
+        onSquaresRemoval: onSquaresDelete
       });
-    }
-    setInitialised(true)
-  }, []);
 
-  return initialised && config != null ? <SquaresView {...config} /> : <></>;
+  }, [initialSquaresData]);
+
+  return config != null ? <SquaresView {...config} /> : <></>;
 }
