@@ -1,10 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import editorsReducer from "./slices/editorsSlice";
+import squaresReducer from "./slices/squaresSlice";
 
-const store = configureStore({
-    reducer: {
-        editors: editorsReducer
-    }
+const reducer = {
+    editors: editorsReducer,
+    squares: squaresReducer
+}
+
+export const store = configureStore({
+    reducer,
 })
 
 export type RootState = ReturnType<typeof store.getState>
