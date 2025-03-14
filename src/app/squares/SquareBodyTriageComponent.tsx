@@ -1,8 +1,8 @@
 import { useAppSelector } from "@/store/hooks";
-import { DemoTextEditor } from "../bodyEditors/DemoTextEditor";
+import { DemoTextEditor } from "../../app/bodyEditors/DemoTextEditor";
 import { selectPanelData } from "@/store/slices/squaresSlice";
 import { JSX } from "react";
-import { EmptyEditor } from "../bodyEditors/EmptyEditor";
+import { EmptyEditor } from "../../app/bodyEditors/EmptyEditor";
 
 export type BodyEditorProps = {
   id: string

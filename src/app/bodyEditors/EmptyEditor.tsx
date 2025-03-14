@@ -1,6 +1,6 @@
 import { useAppSelector } from "@/store/hooks";
 import { selectPanelData } from "@/store/slices/squaresSlice";
-import { BodyEditorProps } from "../squares/SquareBodyTriageComponent";
+import { BodyEditorProps } from "../../demos/squares/SquareBodyTriageComponent";
 
 export function EmptyEditor(props: BodyEditorProps) {
   const data = useAppSelector(selectPanelData(props.id))

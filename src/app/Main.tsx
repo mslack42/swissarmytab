@@ -1,10 +1,10 @@
 import { DockviewApi, IDockviewPanel } from "dockview";
-import "./dockview.css";
+import "./squares/dockview.css";
 import { SquaresView, SquaresViewProps } from "./squares/SquaresView";
 import { squaresService } from "@/store/squaresService";
 import { useEffect, useState } from "react";
 
-export function TabPanelDemo() {
+export function Main() {
   const squaresData = squaresService.initialConfiguration()
   const [initialSquaresData] = useState(squaresData)
 

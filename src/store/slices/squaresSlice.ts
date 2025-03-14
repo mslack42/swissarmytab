@@ -41,6 +41,7 @@ export const squaresSlice = createSlice({
 
 export const selectPanelData = (panelId: string) => ((state: RootState) => state.squares.panelData.find(pd => pd.id == panelId))
 export const selectSquares = (state:RootState) => state.squares
+export const selectHasPluralPanels = (state:RootState) => state.squares.panelData.length > 1
 
 export const { addPanel, storeGridJSON, deletePanels } = squaresSlice.actions
 

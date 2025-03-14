@@ -7,6 +7,8 @@ export const SquaresRightControls = (props: IDockviewHeaderActionsProps) => {
     props.containerApi.hasMaximizedGroup()
   );
 
+  const canToggleMaximise = props.containerApi.groups.length > 1
+
   useEffect(() => {
     const disposable = props.containerApi.onDidMaximizedGroupChange(() => {
       setIsMaximized(props.containerApi.hasMaximizedGroup());
@@ -24,6 +26,10 @@ export const SquaresRightControls = (props: IDockviewHeaderActionsProps) => {
       props.activePanel?.api.maximize();
     }
   };
+
+  if (!canToggleMaximise) {
+    return <></>
+  }
 
   return (
     <div

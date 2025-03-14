@@ -6,6 +6,7 @@ import {
   DockviewReadyEvent,
   DockviewReact,
   IDockviewPanel,
+  IWatermarkPanelProps,
 } from "dockview";
 import { useState, useEffect, Suspense } from "react";
 import { SquareTabHeader } from "./SquareTabHeader";
@@ -14,6 +15,8 @@ import { SquareContentWrapper } from "./SquareContentWrapper";
 import { SquaresLeftControls } from "./SquaresLeftControls";
 import { SquaresRightControls } from "./SquaresRightControls";
 import { SquareBodyTriageComponent } from "./SquareBodyTriageComponent";
+import { EmptyEditor } from "../../app/bodyEditors/EmptyEditor";
+import { squaresService } from "@/store/squaresService";
 
 export type SquaresViewProps = {
   gridJSON: string;

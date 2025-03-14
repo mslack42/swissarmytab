@@ -1,7 +1,7 @@
 import { useAppSelector } from "@/store/hooks";
 import { selectPanelData } from "@/store/slices/squaresSlice";
 import { useState } from "react";
-import { BodyEditorProps } from "../squares/SquareBodyTriageComponent";
+import { BodyEditorProps } from "../../demos/squares/SquareBodyTriageComponent";
 
 export function DemoTextEditor(props: BodyEditorProps) {
   const data = useAppSelector(selectPanelData(props.id))

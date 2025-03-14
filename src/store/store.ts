@@ -1,11 +1,9 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { persistReducer, persistStore} from "redux-persist"
 import storage from "redux-persist/lib/storage";
-import editorsReducer from "./slices/editorsSlice";
 import squaresReducer from "./slices/squaresSlice";
 
 const reducer = {
-    editors: editorsReducer,
     squares: squaresReducer
 }
 const persistConfig = {
