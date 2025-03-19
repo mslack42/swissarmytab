@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
-import { SquareData } from "@/demos/squares/SquareData";
 import { demoConfig } from "@/demos/demoConfig";
+import { SquareData } from "@/app/squares/SquareData";
 
 export interface SquaresState {
     gridJSON: string,
@@ -11,6 +11,13 @@ export interface SquaresState {
 const initialState: SquaresState = demoConfig
 
 type AddPanelPayload = {
+  id: string,
+  name: string,
+  dataId?: string,
+  componentTypeId?: string
+}
+
+type RenamePanelPayload = {
   id: string,
   name: string
 }
@@ -25,9 +32,9 @@ export const squaresSlice = createSlice({
           }
           state.panelData = [...state.panelData, {
             id: action.payload.id,
-            componentTypeId: "empty",
+            componentTypeId: action.payload.componentTypeId ?? "empty",
             title: action.payload.name,
-            dataId: action.payload.id
+            dataId: action.payload.dataId ?? action.payload.id
           }]
         },
         storeGridJSON: (state, action: PayloadAction<string>) => {
@@ -35,6 +42,14 @@ export const squaresSlice = createSlice({
         },
         deletePanels: (state, action: PayloadAction<string[]>) => {
           state.panelData = state.panelData.filter(p => !action.payload.includes(p.id))
+        },
+        renamePanel: (state, action: PayloadAction<RenamePanelPayload>) => {
+          state.panelData = state.panelData.map(p => {
+            if (p.id != action.payload.id) {
+              return p
+            }
+            return {...p, title: action.payload.name}
+          })
         }
     }
 })
@@ -43,6 +58,6 @@ export const selectPanelData = (panelId: string) => ((state: RootState) => state
 export const selectSquares = (state:RootState) => state.squares
 export const selectHasPluralPanels = (state:RootState) => state.squares.panelData.length > 1
 
-export const { addPanel, storeGridJSON, deletePanels } = squaresSlice.actions
+export const { addPanel, storeGridJSON, deletePanels, renamePanel } = squaresSlice.actions
 
 export default squaresSlice.reducer

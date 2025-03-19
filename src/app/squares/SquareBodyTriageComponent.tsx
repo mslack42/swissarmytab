@@ -17,6 +17,7 @@ export function SquareBodyTriageComponent({ id }: { id: string; }) {
   const data = useAppSelector(selectPanelData(id))
   const specifiedComponent = data?.componentTypeId ? BodyTriage[data?.componentTypeId] : undefined
   const component = specifiedComponent ?? EmptyEditor
-  
+
+
   return component({id});
 }
