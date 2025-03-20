@@ -1,8 +1,8 @@
 import { DockviewApi, IDockviewPanel } from "dockview";
 import "./squares/dockview.css";
 import { SquaresView, SquaresViewProps } from "./squares/SquaresView";
-import { squaresService } from "@/store/squaresService";
 import { useEffect, useState } from "react";
+import { squaresService } from "@/store/services/squaresService";
 
 export function Main() {
   const squaresData = squaresService.initialConfiguration()

@@ -1,5 +1,5 @@
-import { useAppSelector } from "@/store/hooks";
-import { selectHasPluralPanels } from "@/store/slices/squaresSlice";
+import { useAppSelector } from "@/store/redux/hooks";
+import { selectHasPluralPanels } from "@/store/redux/slices/squaresSlice";
 import { IDockviewPanelHeaderProps } from "dockview";
 import { X } from "lucide-react";
 import {
@@ -8,7 +8,8 @@ import {
 } from "../configurableContextMenu/ConfigurableContext";
 import { RenameSquareDialog } from "../dialogs/RenameSquareDialog";
 import { useState } from "react";
-import { squaresService } from "@/store/squaresService";
+import { squaresService } from "@/store/services/squaresService";
+
 
 enum TabActions {
   "rename",

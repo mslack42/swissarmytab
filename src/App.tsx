@@ -1,7 +1,7 @@
 import { Main } from "./app/Main";
 
 function TopBar() {
-  return <div className="w-full text-left text-3xl text-white p-1 font-bold bg-red-700"><h1>SWISS ARMY TAB</h1></div>
+  return <div className="w-full text-left text-3xl text-white p-1 font-bold bg-red-700"><h1>SWISS ARMY TAB</h1><p className="text-sm">(a work in progress utility site)</p></div>
 }
 
 function App() {

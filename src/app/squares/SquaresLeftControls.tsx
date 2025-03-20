@@ -1,4 +1,4 @@
-import { squaresService } from "@/store/squaresService";
+import { squaresService } from "@/store/services/squaresService";
 import { IDockviewHeaderActionsProps } from "dockview";
 import { Plus } from "lucide-react";
 

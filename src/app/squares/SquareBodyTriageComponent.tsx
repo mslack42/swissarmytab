@@ -1,6 +1,6 @@
-import { useAppSelector } from "@/store/hooks";
+import { useAppSelector } from "@/store/redux/hooks";
 import { DemoTextEditor } from "../../app/bodyEditors/DemoTextEditor";
-import { selectPanelData } from "@/store/slices/squaresSlice";
+import { selectPanelData } from "@/store/redux/slices/squaresSlice";
 import { JSX } from "react";
 import { EmptyEditor } from "../../app/bodyEditors/EmptyEditor";
 

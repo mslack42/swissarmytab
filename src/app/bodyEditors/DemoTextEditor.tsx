@@ -1,5 +1,5 @@
-import { useAppSelector } from "@/store/hooks";
-import { selectPanelData } from "@/store/slices/squaresSlice";
+import { useAppSelector } from "@/store/redux/hooks";
+import { selectPanelData } from "@/store/redux/slices/squaresSlice";
 import { useState } from "react";
 import { BodyEditorProps } from "../../demos/squares/SquareBodyTriageComponent";
 

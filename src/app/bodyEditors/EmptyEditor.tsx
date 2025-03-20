@@ -1,6 +1,6 @@
-import { useAppSelector } from "@/store/hooks";
-import { selectPanelData } from "@/store/slices/squaresSlice";
-import { BodyEditorProps } from "../../demos/squares/SquareBodyTriageComponent";
+import { useAppSelector } from "@/store/redux/hooks";
+import { selectPanelData } from "@/store/redux/slices/squaresSlice";
+import { BodyEditorProps } from "../squares/SquareBodyTriageComponent";
 
 export function EmptyEditor(props: BodyEditorProps) {
   const data = useAppSelector(selectPanelData(props.id))

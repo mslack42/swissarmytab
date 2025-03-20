@@ -2,12 +2,16 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { persistReducer, persistStore} from "redux-persist"
 import storage from "redux-persist/lib/storage";
 import squaresReducer from "./slices/squaresSlice";
+import editorConfigReducer from "./slices/editorConfigSlice";
+import textStorageReducer from "./slices/textStorageSlice"
 
 const reducer = {
-    squares: squaresReducer
+    squares: squaresReducer,
+    editorConfigs: editorConfigReducer,
+    textStorage: textStorageReducer
 }
 const persistConfig = {
-    key: "swisstab-squares",
+    key: "swisstab",
     storage
 }
 

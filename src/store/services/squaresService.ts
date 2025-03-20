@@ -1,7 +1,7 @@
-import { store } from "@/store/store"
-import { addPanel, deletePanels, renamePanel, storeGridJSON } from "./slices/squaresSlice"
+import { store } from "@/store/redux/store"
 import { v4 as uuidv4 } from 'uuid'
 import { DockviewApi, DockviewPanelApi, IDockviewHeaderActionsProps, IDockviewPanel } from "dockview"
+import { addPanel, storeGridJSON, deletePanels, renamePanel } from "../redux/slices/squaresSlice"
 
 export class SquaresService {
   initialConfiguration = () => {
