@@ -1,9 +1,5 @@
+import { BodyEditorId } from "@/staticAppData/BodyEditorId"
 import { createSlice } from "@reduxjs/toolkit"
-
-enum BodyEditorId {
-    text = "text",
-    json = "json"
-}
 
 export type EditorConfig = {
     [key: string]: unknown

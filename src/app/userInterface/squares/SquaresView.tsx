@@ -15,7 +15,7 @@ import { SquareContentWrapper } from "./SquareContentWrapper";
 import { SquaresLeftControls } from "./SquaresLeftControls";
 import { SquaresRightControls } from "./SquaresRightControls";
 import { SquareBodyTriageComponent } from "./SquareBodyTriageComponent";
-import { EmptyEditor } from "../../app/bodyEditors/EmptyEditor";
+import { EmptyEditor } from "../../bodyEditors/EmptyEditor";
 import { squaresService } from "@/store/squaresService";
 
 export type SquaresViewProps = {

@@ -1,6 +1,6 @@
 import { DockviewApi, IDockviewPanel } from "dockview";
-import "./squares/dockview.css";
-import { SquaresView, SquaresViewProps } from "./squares/SquaresView";
+import "./userInterface/squares/dockview.css";
+import { SquaresView, SquaresViewProps } from "./userInterface/squares/SquaresView";
 import { useEffect, useState } from "react";
 import { squaresService } from "@/store/services/squaresService";
 
