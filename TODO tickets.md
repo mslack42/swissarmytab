@@ -1,7 +1,5 @@
 Tab
- - tab rename
  - tab custom styling
- - tab duplicate
 
 Local storage
  - data storage (i.e. text content)
@@ -11,3 +9,13 @@ Local storage
 context menu
  - on tab
  - in text editor
+
+code linting
+
+styling to get a basic pretty picture
+
+basic tools
+
+common elements for re-use in each basic tool
+
+code refactoring until it's all nice and tidy

@@ -54,7 +54,7 @@ export const squaresSlice = createSlice({
   }
 })
 
-export const selectPanelData: ((panelId: string) => ((state: RootState) => SquareData)) = (panelId: string) => ((state: RootState) => state.squares.panelData.find((pd: SquareData) => pd.id == panelId))
+export const selectPanelData: ((panelId: string) => ((state: RootState) => SquareData | undefined)) = (panelId: string) => ((state: RootState) => state.squares.panelData.find((pd: SquareData) => pd.id == panelId))
 export const selectSquares: ((state: RootState) => SquaresState) = (state: RootState) => state.squares
 export const selectHasPluralPanels = (state: RootState) => state.squares.panelData.length > 1
 
