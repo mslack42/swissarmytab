@@ -81,7 +81,7 @@ export function SquaresView({
       return;
     }
 
-    const layoutDisposable = api.onDidLayoutChange((e) => {
+    const layoutDisposable = api.onDidLayoutChange(() => {
       if (onSquaresLayoutChanged) {
         onSquaresLayoutChanged(api);
       }

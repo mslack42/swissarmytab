@@ -1,3 +1,4 @@
+import { BodyTriageKey } from "@/app/userInterface/squares/BodyTriageKey";
 import { SquaresViewProps } from "@/app/userInterface/squares/SquaresView";
 
 export const demoConfig: SquaresViewProps = {
@@ -5,49 +6,49 @@ export const demoConfig: SquaresViewProps = {
   panelData: [
     {
       id: "panel_1",
-      componentTypeId: "editorConfig",
+      componentTypeId: BodyTriageKey.editorConfig,
       dataId: "123",
       title: "Panel 1",
     },
     {
       id: "panel_2",
-      componentTypeId: "empty",
+      componentTypeId: BodyTriageKey.empty,
       dataId: "1234",
       title: "Panel 2",
     },
     {
       id: "panel_3",
-      componentTypeId: "text",
+      componentTypeId: BodyTriageKey.text,
       dataId: "12345",
       title: "Panel 3",
     },
     {
       id: "panel_4",
-      componentTypeId: "text",
+      componentTypeId: BodyTriageKey.text,
       dataId: "123456",
       title: "Panel 4",
     },
     {
       id: "panel_5",
-      componentTypeId: "text",
+      componentTypeId: BodyTriageKey.text,
       dataId: "1234567",
       title: "Panel 5",
     },
     {
       id: "panel_6",
-      componentTypeId: "text",
+      componentTypeId: BodyTriageKey.text,
       dataId: "12345678",
       title: "Panel 6",
     },
     {
       id: "panel_7",
-      componentTypeId: "text",
+      componentTypeId: BodyTriageKey.text,
       dataId: "123456789",
       title: "Panel 7",
     },
     {
       id: "panel8",
-      componentTypeId: "text",
+      componentTypeId: BodyTriageKey.text,
       dataId: "1234567890",
       title: "Panel 8",
     },

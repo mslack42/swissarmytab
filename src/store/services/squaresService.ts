@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { DockviewApi, DockviewPanelApi, IDockviewHeaderActionsProps, IDockviewPanel } from "dockview"
 import { addPanel, storeGridJSON, deletePanels, renamePanel, transformPanel } from "../redux/slices/squaresSlice"
 import { BodyEditorId } from "@/staticAppData/BodyEditorId";
-import { TriageKeyFromEditorId } from "@/app/userInterface/squares/BodyTriageKey";
+import { BodyTriageKey, TriageKeyFromEditorId } from "@/app/userInterface/squares/BodyTriageKey";
 
 export class SquaresService {
   private dockViewApi: DockviewApi | null = null;
@@ -18,7 +18,7 @@ export class SquaresService {
     store.dispatch(addPanel({ 
       id: newPanelId, 
       name: newPanelName, 
-      componentTypeId: "editorConfig", 
+      componentTypeId: BodyTriageKey.editorConfig, 
       dataId: newDataId }))
     this.dockViewApi.addPanel({
       id: newPanelId,

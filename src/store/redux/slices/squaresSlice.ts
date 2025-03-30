@@ -38,7 +38,7 @@ export const squaresSlice = createSlice({
       }
       state.panelData = [...state.panelData, {
         id: action.payload.id,
-        componentTypeId: action.payload.componentTypeId ?? "empty",
+        componentTypeId: action.payload.componentTypeId ?? BodyTriageKey.empty,
         title: action.payload.name,
         dataId: action.payload.dataId ?? action.payload.id
       }]
