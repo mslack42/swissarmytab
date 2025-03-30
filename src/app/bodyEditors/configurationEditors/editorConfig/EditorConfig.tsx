@@ -14,13 +14,13 @@ export function BodyEditorConfig(props: BodyEditorProps) {
     <>
       <span className="text-sm w-full text-center italic">
         <p className="inline-flex w-full text-center justify-center">
-          Enable <EnableEditor /> any editors that might be useful
+          Enable <EnableEditor /> any tools that might be useful
         </p>
         <p className="inline-flex w-full text-center justify-center">
-          Disable <DisableEditor /> any editors that won't
+          Disable <DisableEditor /> any tools that won't
         </p>
         <p className="inline-flex w-full text-center justify-center">
-          Make sure to favourite <UnfavouriteEditor /> the most useful editors
+          Make sure to favourite <UnfavouriteEditor /> the most useful tools
         </p>
       </span>
       <ul className="flex flex-row p-2 gap-4 h-full flex-wrap justify-start">

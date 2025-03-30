@@ -6,7 +6,6 @@ import {
   DockviewReadyEvent,
   DockviewReact,
   IDockviewPanel,
-  IWatermarkPanelProps,
 } from "dockview";
 import { useState, useEffect, Suspense } from "react";
 import { SquareTabHeader } from "./SquareTabHeader";
@@ -15,8 +14,6 @@ import { SquareContentWrapper } from "./SquareContentWrapper";
 import { SquaresLeftControls } from "./SquaresLeftControls";
 import { SquaresRightControls } from "./SquaresRightControls";
 import { SquareBodyTriageComponent } from "./SquareBodyTriageComponent";
-import { EmptyEditor } from "../../bodyEditors/EmptyEditor";
-import { squaresService } from "@/store/squaresService";
 
 export type SquaresViewProps = {
   gridJSON: string;
@@ -24,6 +21,7 @@ export type SquaresViewProps = {
   onSquaresLayoutChanged?: (api: DockviewApi) => void;
   onSquareAdd?: (panel: IDockviewPanel) => void;
   onSquaresRemoval?: (panelIds: string[]) => void;
+  onSquaresReady?: (api:DockviewApi) => void;
 };
 
 function DockViewPropsFromProps(
@@ -64,7 +62,8 @@ export function SquaresView({
   panelData,
   onSquaresLayoutChanged,
   onSquareAdd,
-  onSquaresRemoval
+  onSquaresRemoval,
+  onSquaresReady
 }: SquaresViewProps) {
   const [components, defaultPanelConfig] = DockViewPropsFromProps({
     gridJSON,
@@ -74,6 +73,7 @@ export function SquaresView({
 
   const onReady = (event: DockviewReadyEvent) => {
     setApi(event.api);
+    if (onSquaresReady) onSquaresReady(event.api)
   };
 
   useEffect(() => {

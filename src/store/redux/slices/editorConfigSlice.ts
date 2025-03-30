@@ -52,6 +52,9 @@ export const editorConfigSlice = createSlice({
             let newList = [...state.enabledEditors]
             if (newList.includes(action.payload)) {
                 newList = newList.filter(b => b != action.payload)
+                if (state.favouriteEditors.includes(action.payload)) {
+                    state.favouriteEditors = state.favouriteEditors.filter(e => e != action.payload)
+                }
             } else {
                 newList = [...newList, action.payload]
             }
@@ -62,6 +65,9 @@ export const editorConfigSlice = createSlice({
 
 export const isFavouriteEditor: ((bodyEditorId: BodyEditorId) => ((state: RootState) => boolean)) = (bodyEditorId: BodyEditorId) => ((state: RootState) => state.editorConfigs.favouriteEditors.includes(bodyEditorId))
 export const isEnabledEditor: ((bodyEditorId: BodyEditorId) => ((state: RootState) => boolean)) = (bodyEditorId: BodyEditorId) => ((state: RootState) => state.editorConfigs.enabledEditors.includes(bodyEditorId))
+export const favouriteEditors = (state:RootState) => state.editorConfigs.favouriteEditors
+export const enabledEditors = (state:RootState) => state.editorConfigs.enabledEditors
+
 
 export const { toggleFavourite, toggleEnabled } = editorConfigSlice.actions
 

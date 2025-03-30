@@ -1,7 +1,8 @@
 import { useAppSelector } from "@/store/redux/hooks";
 import { selectPanelData } from "@/store/redux/slices/squaresSlice";
 import { useState } from "react";
-import { BodyEditorProps } from "../../demos/squares/SquareBodyTriageComponent";
+import { Textarea } from "@/components/ui/textarea";
+import { BodyEditorProps } from "../userInterface/squares/SquareBodyTriageComponent";
 
 export function DemoTextEditor(props: BodyEditorProps) {
   const data = useAppSelector(selectPanelData(props.id))
@@ -9,10 +10,11 @@ export function DemoTextEditor(props: BodyEditorProps) {
   
   return (
     <>
-        <textarea
+        <Textarea
+          className="h-full"
           defaultValue={bodyText}
           onChange={(s) => setBodyText(s.currentTarget.value)}
-        ></textarea>
+        ></Textarea>
     </>
   );
 }

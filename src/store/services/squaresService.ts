@@ -1,9 +1,31 @@
 import { store } from "@/store/redux/store"
 import { v4 as uuidv4 } from 'uuid'
 import { DockviewApi, DockviewPanelApi, IDockviewHeaderActionsProps, IDockviewPanel } from "dockview"
-import { addPanel, storeGridJSON, deletePanels, renamePanel } from "../redux/slices/squaresSlice"
+import { addPanel, storeGridJSON, deletePanels, renamePanel, transformPanel } from "../redux/slices/squaresSlice"
+import { BodyEditorId } from "@/staticAppData/BodyEditorId";
+import { TriageKeyFromEditorId } from "@/app/userInterface/squares/BodyTriageKey";
 
 export class SquaresService {
+  private dockViewApi: DockviewApi | null = null;
+  registerApi = (api: DockviewApi) => {
+    this.dockViewApi = api
+  }
+  openEditorSettings = () => {
+    if (!this.dockViewApi) return
+    const newPanelId = uuidv4()
+    const newDataId = uuidv4()
+    const newPanelName = "settings"
+    store.dispatch(addPanel({ 
+      id: newPanelId, 
+      name: newPanelName, 
+      componentTypeId: "editorConfig", 
+      dataId: newDataId }))
+    this.dockViewApi.addPanel({
+      id: newPanelId,
+      title: newPanelName,
+      component: "default",
+    })
+  }
   initialConfiguration = () => {
     return store.getState().squares
   }
@@ -55,6 +77,11 @@ export class SquaresService {
         referenceGroup: panelApi.group,
       },
     });
+  }
+  transformSquare = (id:string, b: BodyEditorId) => {
+    const newComponentType = TriageKeyFromEditorId(b)
+    store.dispatch(transformPanel({id, newComponentType}))
+
   }
 }
 const squaresService = new SquaresService()

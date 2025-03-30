@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 import { demoConfig } from "@/demos/demoConfig";
 import { SquareData } from "@/app/userInterface/squares/SquareData";
+import { BodyTriageKey } from "@/app/userInterface/squares/BodyTriageKey";
 
 export interface SquaresState {
   gridJSON: string,
@@ -14,12 +15,17 @@ type AddPanelPayload = {
   id: string,
   name: string,
   dataId?: string,
-  componentTypeId?: string
+  componentTypeId?: BodyTriageKey
 }
 
 type RenamePanelPayload = {
   id: string,
   name: string
+}
+
+type TransformPanelPayload = {
+  id: string,
+  newComponentType: BodyTriageKey
 }
 
 export const squaresSlice = createSlice({
@@ -50,6 +56,14 @@ export const squaresSlice = createSlice({
         }
         return { ...p, title: action.payload.name }
       })
+    },
+    transformPanel: (state, action: PayloadAction<TransformPanelPayload>) => {
+      state.panelData = state.panelData.map(p => {
+        if (p.id != action.payload.id) {
+          return p
+        }
+        return { ...p, componentTypeId: action.payload.newComponentType }
+      })
     }
   }
 })
@@ -58,6 +72,6 @@ export const selectPanelData: ((panelId: string) => ((state: RootState) => Squar
 export const selectSquares: ((state: RootState) => SquaresState) = (state: RootState) => state.squares
 export const selectHasPluralPanels = (state: RootState) => state.squares.panelData.length > 1
 
-export const { addPanel, storeGridJSON, deletePanels, renamePanel } = squaresSlice.actions
+export const { addPanel, storeGridJSON, deletePanels, renamePanel, transformPanel } = squaresSlice.actions
 
 export default squaresSlice.reducer

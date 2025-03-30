@@ -19,13 +19,17 @@ export function Main() {
       const onSquaresDelete = (ids: string[]) => {
         squaresService.removeSquaresFromStore(ids)
       }
+      const registerApi = (api: DockviewApi) => {
+        squaresService.registerApi(api)
+      }
   
       setConfig({
         gridJSON: initialSquaresData.gridJSON,
         panelData: initialSquaresData.panelData,
         onSquareAdd: onSquareAdd,
         onSquaresLayoutChanged: onLayoutChange,
-        onSquaresRemoval: onSquaresDelete
+        onSquaresRemoval: onSquaresDelete,
+        onSquaresReady: registerApi
       });
 
   }, [initialSquaresData]);
