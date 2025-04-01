@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 import { demoConfig } from "@/demos/demoConfig";
 import { SquareData } from "@/app/userInterface/squares/SquareData";
-import { BodyTriageKey } from "@/app/userInterface/squares/BodyTriageKey";
+import { BodyEditorId } from "@/staticAppData/BodyEditorId";
 
 export interface SquaresState {
   gridJSON: string,
@@ -15,7 +15,7 @@ type AddPanelPayload = {
   id: string,
   name: string,
   dataId?: string,
-  componentTypeId?: BodyTriageKey
+  componentTypeId?: BodyEditorId
 }
 
 type RenamePanelPayload = {
@@ -25,7 +25,7 @@ type RenamePanelPayload = {
 
 type TransformPanelPayload = {
   id: string,
-  newComponentType: BodyTriageKey
+  newComponentType: BodyEditorId
 }
 
 export const squaresSlice = createSlice({
@@ -38,7 +38,7 @@ export const squaresSlice = createSlice({
       }
       state.panelData = [...state.panelData, {
         id: action.payload.id,
-        componentTypeId: action.payload.componentTypeId ?? BodyTriageKey.empty,
+        componentTypeId: action.payload.componentTypeId ?? BodyEditorId.empty,
         title: action.payload.name,
         dataId: action.payload.dataId ?? action.payload.id
       }]

@@ -24,5 +24,16 @@ Markdown
 
 JS <-> JSON for objects
 
+Stopwatch, timer, etc
 
+Keep-alive screen
 
+QR code gen
+
+RNG
+
+epoch
+
+rich text
+
+unicode tableflip/shrug/etc

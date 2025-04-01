@@ -1,8 +1,8 @@
-import { BodyTriageKey } from "./BodyTriageKey";
+import { BodyEditorId } from "@/staticAppData/BodyEditorId";
 
 export type SquareData = {
   id: string;
   title: string;
   dataId: string;
-  componentTypeId: BodyTriageKey;
+  componentTypeId: BodyEditorId;
 };

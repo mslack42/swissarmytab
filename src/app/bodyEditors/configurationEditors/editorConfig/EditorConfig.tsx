@@ -1,16 +1,10 @@
-// import { BodyEditorProps } from "@/app/userInterface/squares/SquareBodyTriageComponent";
 import { BodyEditorId } from "@/staticAppData/BodyEditorId";
 import { Editors } from "@/staticAppData/Editors";
-// import { useAppSelector } from "@/store/redux/hooks";
-// import { selectPanelData } from "@/store/redux/slices/squaresSlice";
 import { BodyEditorCard } from "./BodyEditorCard";
 import { DisableEditor, EnableEditor } from "./EnabledCheckbox";
 import { UnfavouriteEditor } from "./FavouriteStar";
 
-// export function BodyEditorConfig(props: BodyEditorProps) {
 export function BodyEditorConfig() {
-  // const data = useAppSelector(selectPanelData(props.id));
-
   return (
     <>
       <span className="text-sm w-full text-center italic">
