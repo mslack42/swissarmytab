@@ -1,6 +1,6 @@
 import { BodyEditorId } from "@/staticAppData/BodyEditorId";
 import { Editors } from "@/staticAppData/Editors";
-import { FileJson, FileQuestion, LetterText } from "lucide-react";
+import { Eye, FileJson, FileQuestion, LetterText } from "lucide-react";
 import { JSX } from "react";
 
 type EditorIconMap = Partial<{
@@ -11,7 +11,8 @@ const iconSize = 80
 
 const editorIconMap: EditorIconMap = {
   text: <LetterText size={iconSize}/>,
-  json: <FileJson size={iconSize}/>
+  json: <FileJson size={iconSize}/>,
+  nosleep: <Eye size={iconSize}/>
 }
 
 type EditorIconProps = {
