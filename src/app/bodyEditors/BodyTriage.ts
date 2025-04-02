@@ -5,11 +5,19 @@ import { BodyEditorProps } from "../userInterface/squares/SquareBodyTriageCompon
 import { BodyEditorConfig } from "@/app/bodyEditors/configurationEditors/editorConfig/EditorConfig";
 import { BodyEditorId } from "@/staticAppData/BodyEditorId";
 import { NoSleepEditor } from "./nosleepEditor/NoSleepEditor";
+import { Settings } from "./configurationEditors/Settings";
+import { ContextMenuConfig } from "./configurationEditors/contextMenuConfig/contextMenuConfig";
+import { About } from "./configurationEditors/about/About";
 
 export const BodyTriage: Partial<{ [key in BodyEditorId]: (props: BodyEditorProps) => JSX.Element }> = {
   empty: EmptyEditor,
-  text: DemoTextEditor,
+  // Settings stuff
+  settings: Settings,
+  contextMenuConfig: ContextMenuConfig,
   editorConfig: BodyEditorConfig,
+  about: About,
+  // Editors
+  text: DemoTextEditor,
   json: DemoTextEditor,
-  nosleep: NoSleepEditor
+  nosleep: NoSleepEditor,
 };

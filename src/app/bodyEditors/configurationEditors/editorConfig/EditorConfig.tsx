@@ -3,10 +3,12 @@ import { Editors } from "@/staticAppData/Editors";
 import { BodyEditorCard } from "./BodyEditorCard";
 import { DisableEditor, EnableEditor } from "./EnabledCheckbox";
 import { UnfavouriteEditor } from "./FavouriteStar";
+import { BodyEditorProps } from "@/app/userInterface/squares/SquareBodyTriageComponent";
+import { SubSettingsWrapper } from "../SubSettingsWrapper";
 
-export function BodyEditorConfig() {
+export function BodyEditorConfig(props: BodyEditorProps) {
   return (
-    <>
+    <SubSettingsWrapper panelId={props.id}>
       <span className="text-sm w-full text-center italic">
         <p className="inline-flex w-full text-center justify-center">
           Enable <EnableEditor /> any tools that might be useful
@@ -25,6 +27,6 @@ export function BodyEditorConfig() {
           </li>
         ))}
       </ul>
-    </>
+    </SubSettingsWrapper>
   );
 }

@@ -17,12 +17,13 @@ export function EmptyEditor(props: BodyEditorProps) {
   const onSelect = (b: BodyEditorId) => {
     if (data) squaresService.transformSquare(data.id, b);
   };
+  const displayedFavourites = favourites.filter(f => enabled.includes(f))
 
   return (
     <>
       <h1>Favourites</h1>
-      <ul>
-        {favourites.map((f) => (
+      <ul className="flex flex-wrap justify-center gap-4">
+        {displayedFavourites.map((f) => (
           <li key={f}>
             <EditorIcon bodyEditorId={f} onSelect={onSelect} />
           </li>
@@ -30,7 +31,7 @@ export function EmptyEditor(props: BodyEditorProps) {
       </ul>
       <Separator className="my-2" />
       <h1>All editors</h1>
-      <ul>
+      <ul className="flex flex-wrap justify-center gap-4">
         {enabled.map((e) => (
           <li key={e}>
             <EditorIcon bodyEditorId={e} onSelect={onSelect} />

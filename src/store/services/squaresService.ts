@@ -17,7 +17,7 @@ export class SquaresService {
     store.dispatch(addPanel({ 
       id: newPanelId, 
       name: newPanelName, 
-      componentTypeId: BodyEditorId.editorConfig, 
+      componentTypeId: BodyEditorId.settings, 
       dataId: newDataId }))
     this.dockViewApi.addPanel({
       id: newPanelId,
