@@ -9,7 +9,9 @@ import { Settings } from "./configurationEditors/Settings";
 import { ContextMenuConfig } from "./configurationEditors/contextMenuConfig/contextMenuConfig";
 import { About } from "./configurationEditors/about/About";
 
-export const BodyTriage: Partial<{ [key in BodyEditorId]: (props: BodyEditorProps) => JSX.Element }> = {
+export const BodyTriage: Partial<{
+  [key in BodyEditorId]: (props: BodyEditorProps) => JSX.Element;
+}> = {
   empty: EmptyEditor,
   // Settings stuff
   settings: Settings,

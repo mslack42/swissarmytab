@@ -4,7 +4,7 @@ import { Plus } from "lucide-react";
 
 export const SquaresLeftControls = (props: IDockviewHeaderActionsProps) => {
   const onClick = () => {
-    squaresService.addSquare(props)
+    squaresService.addSquare(props);
   };
 
   return (

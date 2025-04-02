@@ -1,7 +1,6 @@
 import { ChevronDown, ChevronUp, Settings } from "lucide-react";
 import { squaresService } from "./store/services/squaresService";
 import { useState } from "react";
-import { cn } from "./lib/utils";
 
 export function TopBar() {
   const [minimise, setMinimise] = useState(false);

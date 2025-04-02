@@ -4,10 +4,10 @@ import { Lock, Maximize2, Minimize2 } from "lucide-react";
 
 export const SquaresRightControls = (props: IDockviewHeaderActionsProps) => {
   const [isMaximized, setIsMaximized] = useState<boolean>(
-    props.containerApi.hasMaximizedGroup()
+    props.containerApi.hasMaximizedGroup(),
   );
 
-  const canToggleMaximise = props.containerApi.groups.length > 1
+  const canToggleMaximise = props.containerApi.groups.length > 1;
 
   useEffect(() => {
     const disposable = props.containerApi.onDidMaximizedGroupChange(() => {
@@ -28,7 +28,7 @@ export const SquaresRightControls = (props: IDockviewHeaderActionsProps) => {
   };
 
   if (!canToggleMaximise) {
-    return <></>
+    return <></>;
   }
 
   return (

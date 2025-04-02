@@ -21,14 +21,14 @@ export type SquaresViewProps = {
   onSquaresLayoutChanged?: (api: DockviewApi) => void;
   onSquareAdd?: (panel: IDockviewPanel) => void;
   onSquaresRemoval?: (panelIds: string[]) => void;
-  onSquaresReady?: (api:DockviewApi) => void;
+  onSquaresReady?: (api: DockviewApi) => void;
 };
 
 function DockViewPropsFromProps(
-  props: SquaresViewProps
+  props: SquaresViewProps,
 ): [
   Record<string, React.FunctionComponent<IDockviewPanelProps>>,
-  SerializedDockview
+  SerializedDockview,
 ] {
   const components: Record<
     string,
@@ -45,7 +45,7 @@ function DockViewPropsFromProps(
     panels[pd.id] = {
       id: pd.id,
       contentComponent: "default",
-      title: pd.title
+      title: pd.title,
     };
   });
 
@@ -63,7 +63,7 @@ export function SquaresView({
   onSquaresLayoutChanged,
   onSquareAdd,
   onSquaresRemoval,
-  onSquaresReady
+  onSquaresReady,
 }: SquaresViewProps) {
   const [components, defaultPanelConfig] = DockViewPropsFromProps({
     gridJSON,
@@ -73,7 +73,7 @@ export function SquaresView({
 
   const onReady = (event: DockviewReadyEvent) => {
     setApi(event.api);
-    if (onSquaresReady) onSquaresReady(event.api)
+    if (onSquaresReady) onSquaresReady(event.api);
   };
 
   useEffect(() => {
@@ -115,12 +115,12 @@ export function SquaresView({
 
     const removePanelDisposable = api.onDidRemovePanel((e) => {
       if (onSquaresRemoval) {
-        onSquaresRemoval([e.id])
+        onSquaresRemoval([e.id]);
       }
     });
     const removeGroupDisposable = api.onDidRemoveGroup((e) => {
       if (onSquaresRemoval) {
-        onSquaresRemoval(e.panels.map(p => p.id))
+        onSquaresRemoval(e.panels.map((p) => p.id));
       }
     });
 
@@ -162,7 +162,7 @@ export function SquaresView({
       api.fromJSON(defaultPanelConfig);
     } catch (e) {
       alert(
-        "Failed to load panels, and graceful handling for this has not been implemented yet"
+        "Failed to load panels, and graceful handling for this has not been implemented yet",
       );
     }
   }, [api, defaultPanelConfig]);

@@ -1,25 +1,25 @@
 import { useState } from "react";
-import NoSleep from '@uriopass/nosleep.js';
+import NoSleep from "@uriopass/nosleep.js";
 
-const noSleepHandler = new NoSleep()
+const noSleepHandler = new NoSleep();
 
 export function NoSleepEditor() {
-  const [sleep, setSleep] = useState(false)
-  
-  const toggleSleep = (newSleep:boolean) => {
-    setSleep(newSleep)
+  const [sleep, setSleep] = useState(false);
+
+  const toggleSleep = (newSleep: boolean) => {
+    setSleep(newSleep);
     if (newSleep) {
-        noSleepHandler.enable()
+      noSleepHandler.enable();
     } else {
-        noSleepHandler.disable()
+      noSleepHandler.disable();
     }
-  }
+  };
 
   return (
     <>
-        <button onClick={() => toggleSleep(!sleep)}>
-            {sleep ? <p>GREEN</p> : <p>RED</p>}
-        </button>
+      <button onClick={() => toggleSleep(!sleep)}>
+        {sleep ? <p>GREEN</p> : <p>RED</p>}
+      </button>
     </>
   );
 }

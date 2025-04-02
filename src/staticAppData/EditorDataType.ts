@@ -1,6 +1,5 @@
-
 export enum EditorDataType {
-    None = "None",
-    Text = "Text",
-    Custom = "Custom"
+  None = "None",
+  Text = "Text",
+  Custom = "Custom",
 }

@@ -1,13 +1,16 @@
 Tab
- - tab custom styling
+
+- tab custom styling
 
 Local storage
- - data storage (i.e. text content)
- - configuration per editor type (i.e. for this editor, use these toggles)
+
+- data storage (i.e. text content)
+- configuration per editor type (i.e. for this editor, use these toggles)
 
 context menu
- - on tab
- - in text editor
+
+- on tab
+- in text editor
 
 code linting
 

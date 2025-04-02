@@ -40,7 +40,9 @@ function SettingsButton(props: SettingsButtonProps) {
 }
 
 export function Settings(props: BodyEditorProps) {
-  const ListItem = (elt: React.PropsWithChildren) => <li className="flex h-52">{elt.children}</li>;
+  const ListItem = (elt: React.PropsWithChildren) => (
+    <li className="flex h-52">{elt.children}</li>
+  );
 
   return (
     <>

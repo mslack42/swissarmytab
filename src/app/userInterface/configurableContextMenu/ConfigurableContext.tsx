@@ -39,12 +39,12 @@ type ConfigurableContextProps = {
 };
 
 export function ConfigurableContext(
-  props: React.PropsWithChildren<ConfigurableContextProps>
+  props: React.PropsWithChildren<ConfigurableContextProps>,
 ) {
   const configuration = props.configuration;
   const emitSelection = props.onActionSelection ?? (() => {});
 
-  const rowComponent = (item: ContextMenuRow, id:number) => {
+  const rowComponent = (item: ContextMenuRow, id: number) => {
     switch (item.itemType) {
       case "action":
         return (
@@ -62,7 +62,9 @@ export function ConfigurableContext(
           </ContextMenuItem>
         );
       case "separator":
-        return <ContextMenuSeparator key={id.toString()}></ContextMenuSeparator>;
+        return (
+          <ContextMenuSeparator key={id.toString()}></ContextMenuSeparator>
+        );
       case "submenu":
         return (
           <ContextMenuSub key={id.toString()}>

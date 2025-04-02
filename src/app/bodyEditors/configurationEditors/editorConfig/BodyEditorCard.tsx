@@ -20,10 +20,13 @@ export function BodyEditorCard({ bodyEditorId }: BodyEditorCardProps) {
   const isFavourited = useAppSelector(isFavouriteEditor(bodyEditorId));
 
   return (
-    <div className={cn("border-white rounded-md border-2 h-28 w-52", 
+    <div
+      className={cn(
+        "border-white rounded-md border-2 h-28 w-52",
         isFavourited && isEnabled ? "border-amber-700" : "",
-        isEnabled ? "bg-green-800" : "bg-red-800"
-    )}>
+        isEnabled ? "bg-green-800" : "bg-red-800",
+      )}
+    >
       <div className="h-28 w-52">
         <h2 className="text-xl">{data?.name}</h2>
         <p>{data?.description}</p>
