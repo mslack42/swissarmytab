@@ -12,8 +12,6 @@ context menu
 - on tab
 - in text editor
 
-code linting
-
 styling to get a basic pretty picture
 
 basic tools

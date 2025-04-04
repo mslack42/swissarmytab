@@ -4,11 +4,13 @@ import storage from "redux-persist/lib/storage";
 import squaresReducer from "./slices/squaresSlice";
 import editorConfigReducer from "./slices/editorConfigSlice";
 import textStorageReducer from "./slices/textStorageSlice";
+import dataStorageReducer from "./slices/dataSlice";
 
 const reducer = {
   squares: squaresReducer,
   editorConfigs: editorConfigReducer,
   textStorage: textStorageReducer,
+  dataStorage: dataStorageReducer
 };
 const persistConfig = {
   key: "swisstab",
