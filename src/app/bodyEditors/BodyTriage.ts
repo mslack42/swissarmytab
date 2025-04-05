@@ -9,6 +9,7 @@ import { Settings } from "./configurationEditors/Settings";
 import { ContextMenuConfig } from "./configurationEditors/contextMenuConfig/contextMenuConfig";
 import { About } from "./configurationEditors/about/About";
 import { JsonEditor } from "./jsonEditor/JsonEditor";
+import { JpathEditor } from "./jpathEditor/JpathEditor";
 
 export const BodyTriage: Partial<{
   [key in BodyEditorId]: (props: BodyEditorProps) => JSX.Element;
@@ -23,4 +24,5 @@ export const BodyTriage: Partial<{
   text: DemoTextEditor,
   json: JsonEditor,
   nosleep: NoSleepEditor,
+  jpath: JpathEditor
 };

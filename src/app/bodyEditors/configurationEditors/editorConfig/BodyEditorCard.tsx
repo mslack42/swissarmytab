@@ -1,7 +1,7 @@
 import { BodyEditorId } from "@/staticAppData/BodyEditorId";
 import { Editors } from "@/staticAppData/Editors";
 import { Settings } from "lucide-react";
-import { FavouriteStar } from "./FavouriteStar";
+// import { FavouriteStar } from "./FavouriteStar";
 import { EnabledCheckbox } from "./EnabledCheckbox";
 import { useAppSelector } from "@/store/redux/hooks";
 import {
@@ -24,7 +24,7 @@ export function BodyEditorCard({ bodyEditorId }: BodyEditorCardProps) {
       className={cn(
         "border-white rounded-md border-2 h-28 w-52",
         isFavourited && isEnabled ? "border-amber-700" : "",
-        isEnabled ? "bg-green-800" : "bg-red-800",
+        isEnabled ? "bg-green-800" : "bg-red-800"
       )}
     >
       <div className="h-28 w-52">
@@ -38,7 +38,7 @@ export function BodyEditorCard({ bodyEditorId }: BodyEditorCardProps) {
           </div>
           <div className="basis-1/2">
             <div className="w-full flex flex-row-reverse">
-              <FavouriteStar bodyEditorId={bodyEditorId} />
+              {/* <FavouriteStar bodyEditorId={bodyEditorId} /> */}
               <EnabledCheckbox bodyEditorId={bodyEditorId} />
             </div>
           </div>

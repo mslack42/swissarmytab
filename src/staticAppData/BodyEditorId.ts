@@ -7,4 +7,5 @@ export enum BodyEditorId {
   settings = "settings",
   json = "json",
   nosleep = "nosleep",
+  jpath = "jpath"
 }

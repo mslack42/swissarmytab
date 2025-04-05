@@ -5,7 +5,7 @@ import { EditorDataType } from "../EditorDataType";
 export const Text: Editor = {
   id: BodyEditorId.text,
   name: "Text",
-  description: "Just a place you can dump text",
+  description: "Plainest plain text",
   icon: "",
   hasSettings: false,
   dataType: EditorDataType.Text,
