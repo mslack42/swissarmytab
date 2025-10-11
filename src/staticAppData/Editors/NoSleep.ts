@@ -2,10 +2,10 @@ import { BodyEditorId } from "../BodyEditorId";
 import { Editor } from "../Editor";
 import { EditorDataType } from "../EditorDataType";
 
-export const NoSleep: Editor = {
-  id: BodyEditorId.nosleep,
-  name: "No Sleep",
-  description: "Keeping green dots green",
+export const KeepAwake: Editor = {
+  id: BodyEditorId.keepawake,
+  name: "Keep Awake",
+  description: "Prevent your computer from sleeping",
   icon: "",
   hasSettings: false,
   dataType: EditorDataType.None,

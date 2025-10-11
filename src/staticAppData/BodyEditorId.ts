@@ -1,11 +1,11 @@
 export enum BodyEditorId {
   empty = "empty",
-  text = "text",
+  plaintext = "plaintext",
   editorConfig = "editorConfig",
   contextMenuConfig = "contextMenuConfig",
   about = "about",
   settings = "settings",
   json = "json",
-  nosleep = "nosleep",
+  keepawake = "keepawake",
   jpath = "jpath"
 }

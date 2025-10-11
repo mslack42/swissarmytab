@@ -12,8 +12,9 @@ const reducer = {
   textStorage: textStorageReducer,
   dataStorage: dataStorageReducer
 };
+// Increment this key whenever breaking changes are made to the local storage
 const persistConfig = {
-  key: "swisstab",
+  key: "swisstab-standard-2",
   storage,
 };
 

@@ -27,19 +27,21 @@ export function BodyEditorCard({ bodyEditorId }: BodyEditorCardProps) {
         isEnabled ? "bg-green-800" : "bg-red-800"
       )}
     >
-      <div className="h-28 w-52">
-        <h2 className="text-xl">{data?.name}</h2>
-        <p>{data?.description}</p>
-        <div className="w-full flex flex-row justify-between">
-          <div className="basis-1/2 ">
-            <div className="w-full flex flex-start">
-              {data?.hasSettings ? <Settings /> : <></>}
+      <div className="h-28 w-52 py-1 px-2">
+        <div className="h-full flex flex-col justify-between">
+          <h2 className="text-xl underline">{data?.name}</h2>
+          <p className="text-sm">{data?.description}</p>
+          <div className="w-full flex flex-row justify-between">
+            <div className="basis-1/2 ">
+              <div className="w-full flex flex-start">
+                {data?.hasSettings ? <Settings /> : <></>}
+              </div>
             </div>
-          </div>
-          <div className="basis-1/2">
-            <div className="w-full flex flex-row-reverse">
-              {/* <FavouriteStar bodyEditorId={bodyEditorId} /> */}
-              <EnabledCheckbox bodyEditorId={bodyEditorId} />
+            <div className="basis-1/2">
+              <div className="w-full flex flex-row-reverse py-1">
+                {/* <FavouriteStar bodyEditorId={bodyEditorId} /> */}
+                <EnabledCheckbox bodyEditorId={bodyEditorId} />
+              </div>
             </div>
           </div>
         </div>

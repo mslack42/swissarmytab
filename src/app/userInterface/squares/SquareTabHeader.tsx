@@ -78,7 +78,7 @@ export function SquareTabHeader(props: IDockviewPanelHeaderProps) {
     const renamed = squaresService.renameSquare(props.api.id, name, props.api);
     if (!renamed) {
       alert(
-        "Toast for failure later - do something with errors to say that tab already exists with that name",
+        "Toast for failure later - do something with errors to say that tab already exists with that name"
       );
     }
   }
@@ -93,7 +93,7 @@ export function SquareTabHeader(props: IDockviewPanelHeaderProps) {
         configuration={contextConfiguration}
         onActionSelection={actionHandler}
       >
-        <div className="bg-amber-400 h-full w-full px-1 flex flex-row">
+        <div className="bg-red-900 h-full w-full px-1 flex flex-row">
           <div>{props.api.title}</div>
           {canClose ? <X onClick={onCloseClick} /> : <></>}
         </div>

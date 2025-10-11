@@ -3,9 +3,9 @@ import { Editor } from "../Editor";
 import { EditorDataType } from "../EditorDataType";
 
 export const Text: Editor = {
-  id: BodyEditorId.text,
+  id: BodyEditorId.plaintext,
   name: "Text",
-  description: "Plainest plain text",
+  description: "Plaintext",
   icon: "",
   hasSettings: false,
   dataType: EditorDataType.Text,

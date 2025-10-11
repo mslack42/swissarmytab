@@ -1,4 +1,4 @@
-import { DemoTextEditor } from "@/app/bodyEditors/DemoTextEditor";
+import { PlaintextEditor } from "@/app/bodyEditors/plaintext/PlaintextEditor";
 import { EmptyEditor } from "@/app/bodyEditors/emptyEditor/EmptyEditor";
 import { JSX } from "react";
 import { BodyEditorProps } from "../userInterface/squares/SquareBodyTriageComponent";
@@ -21,8 +21,8 @@ export const BodyTriage: Partial<{
   editorConfig: BodyEditorConfig,
   about: About,
   // Editors
-  text: DemoTextEditor,
+  plaintext: PlaintextEditor,
   json: JsonEditor,
-  nosleep: NoSleepEditor,
+  keepawake: NoSleepEditor,
   jpath: JpathEditor
 };

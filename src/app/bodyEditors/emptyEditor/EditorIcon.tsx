@@ -16,9 +16,9 @@ type EditorIconMap = Partial<{
 const iconSize = 80;
 
 const editorIconMap: EditorIconMap = {
-  text: <LetterText size={iconSize} />,
+  plaintext: <LetterText size={iconSize} />,
   json: <FileJson size={iconSize} />,
-  nosleep: <Eye size={iconSize} />,
+  keepawake: <Eye size={iconSize} />,
   jpath: <FileSearch size={iconSize} />,
 };
 
@@ -33,9 +33,11 @@ export function EditorIcon({ bodyEditorId, onSelect }: EditorIconProps) {
   return (
     <button onClick={() => onSelect(bodyEditorId)}>
       {
-        <div className="w-24 h-28 bg-slate-500 rounded-xl hover:bg-slate-600">
-          <div className="text-xl w-full">{icon}</div>
-          <p className="w-full text-center">{Editors[bodyEditorId]?.name}</p>
+        <div className="w-24 h-36 bg-slate-500 rounded-xl hover:bg-slate-600 p-2">
+          <div className="text-xl w-full justify-center h-24">{icon}</div>
+          <div className="flex flex-col justify-center h-4">
+            <p className="w-full text-center">{Editors[bodyEditorId]?.name}</p>
+          </div>
         </div>
       }
     </button>

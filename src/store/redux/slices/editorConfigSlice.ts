@@ -27,7 +27,7 @@ const initialState: EditorConfigState = {
   favouriteEditors: [],
   enabledEditors: [],
   editorConfigs: {
-    text: {},
+    plaintext: {},
   },
   enabledContextMenuActions: [],
   contentMenuActionConfigs: {

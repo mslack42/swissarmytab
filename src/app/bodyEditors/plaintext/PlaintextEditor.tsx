@@ -2,9 +2,9 @@ import { useAppSelector } from "@/store/redux/hooks";
 import { selectPanelData } from "@/store/redux/slices/squaresSlice";
 import { useState } from "react";
 import { Textarea } from "@/components/ui/textarea";
-import { BodyEditorProps } from "../userInterface/squares/SquareBodyTriageComponent";
+import { BodyEditorProps } from "../../userInterface/squares/SquareBodyTriageComponent";
 
-export function DemoTextEditor(props: BodyEditorProps) {
+export function PlaintextEditor(props: BodyEditorProps) {
   const data = useAppSelector(selectPanelData(props.id));
   const [bodyText, setBodyText] = useState("dataId: " + data?.dataId);
 

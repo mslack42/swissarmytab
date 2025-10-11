@@ -5,6 +5,7 @@ import { BodyEditorId } from "@/staticAppData/BodyEditorId";
 import { squaresService } from "@/store/services/squaresService";
 import { selectPanelData } from "@/store/redux/slices/squaresSlice";
 import { EditorIcon } from "./EditorIcon";
+import { Separator } from "@radix-ui/react-context-menu";
 
 export function EmptyEditor(props: BodyEditorProps) {
   const data = useAppSelector(selectPanelData(props.id));
@@ -26,14 +27,41 @@ export function EmptyEditor(props: BodyEditorProps) {
         ))}
       </ul>
       <Separator className="my-2" /> */}
-      <h1>Choose an editor:</h1>
-      <ul className="flex flex-wrap justify-center gap-4">
-        {enabled.map((e) => (
-          <li key={e}>
-            <EditorIcon bodyEditorId={e} onSelect={onSelect} />
-          </li>
-        ))}
-      </ul>
+      {enabled.length > 0 && (
+        <>
+          <h1>Choose an editor</h1>
+          <Separator className="my-2 mx-3 h-1 bg-slate-500" />
+          <ul className="flex flex-wrap justify-center gap-4">
+            {enabled.map((e) => (
+              <li key={e}>
+                <EditorIcon bodyEditorId={e} onSelect={onSelect} />
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
+      {enabled.length == 0 && <NoEditorsConfigured panelId={props.id} />}
+    </>
+  );
+}
+
+function NoEditorsConfigured({ panelId }: { panelId: string }) {
+  const onClick = () => {
+    squaresService.transformSquare(panelId, BodyEditorId.settings);
+  };
+
+  return (
+    <>
+      <h1>
+        <span>
+          Looks like you haven't got any editors configured. You can change this
+          in the{" "}
+        </span>
+        <button onClick={onClick} className="underline text-slate-400">
+          settings
+        </button>
+        <span>.</span>
+      </h1>
     </>
   );
 }
