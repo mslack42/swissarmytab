@@ -5,12 +5,14 @@ import squaresReducer from "./slices/squaresSlice";
 import editorConfigReducer from "./slices/editorConfigSlice";
 import textStorageReducer from "./slices/textStorageSlice";
 import dataStorageReducer from "./slices/dataSlice";
+import userReducer from "./slices/userSlice";
 
 const reducer = {
   squares: squaresReducer,
   editorConfigs: editorConfigReducer,
   textStorage: textStorageReducer,
   dataStorage: dataStorageReducer,
+  user: userReducer,
 };
 // Increment this key whenever breaking changes are made to the local storage
 const persistConfig = {

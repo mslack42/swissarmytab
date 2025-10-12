@@ -1,9 +1,17 @@
 import { ChevronDown, ChevronUp, Settings } from "lucide-react";
 import { squaresService } from "./store/services/squaresService";
-import { useState } from "react";
+import { useAppSelector } from "./store/redux/hooks";
+import {
+  isTopBarMinimised,
+  setIsTopBarMinimised,
+} from "./store/redux/slices/userSlice";
+import { store } from "@/store/redux/store";
 
 export function TopBar() {
-  const [minimise, setMinimise] = useState(false);
+  const minimise = useAppSelector(isTopBarMinimised);
+  const toggleMinimise = () => {
+    store.dispatch(setIsTopBarMinimised(!minimise));
+  };
   const openSettings = () => {
     squaresService.openEditorSettings();
   };
@@ -27,7 +35,7 @@ export function TopBar() {
         <div className="w-full flex flex-row justify-center">
           <button
             className="bg-white w-20 z-50 rounded-2xl flex flex-row justify-center hover:bg-slate-200"
-            onClick={() => setMinimise(!minimise)}
+            onClick={toggleMinimise}
           >
             {minimise ? (
               <ChevronDown className="text-black" size={8} />

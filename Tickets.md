@@ -37,3 +37,5 @@
 - Toast error on tab rename failure (S)
 - Copy to clipboard button (M)
 - Keep Awake text-hiding for the script example, and copy-to-clipboard functionality
+- New user welcome features
+- Beta features user flag
