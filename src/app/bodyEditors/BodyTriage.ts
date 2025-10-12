@@ -4,7 +4,7 @@ import { JSX } from "react";
 import { BodyEditorProps } from "../userInterface/squares/SquareBodyTriageComponent";
 import { BodyEditorConfig } from "@/app/bodyEditors/configurationEditors/editorConfig/EditorConfig";
 import { BodyEditorId } from "@/staticAppData/BodyEditorId";
-import { NoSleepEditor } from "./nosleepEditor/NoSleepEditor";
+import { KeepAwakeEditor } from "./keepAwakeEditor/KeepAwakeEditor";
 import { Settings } from "./configurationEditors/Settings";
 import { ContextMenuConfig } from "./configurationEditors/contextMenuConfig/contextMenuConfig";
 import { About } from "./configurationEditors/about/About";
@@ -23,6 +23,6 @@ export const BodyTriage: Partial<{
   // Editors
   plaintext: PlaintextEditor,
   json: JsonEditor,
-  keepawake: NoSleepEditor,
+  keepawake: KeepAwakeEditor,
   jpath: JpathEditor,
 };
