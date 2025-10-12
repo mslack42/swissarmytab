@@ -6,6 +6,9 @@ import { squaresService } from "@/store/services/squaresService";
 import { selectPanelData } from "@/store/redux/slices/squaresSlice";
 import { EditorIcon } from "./EditorIcon";
 import { Separator } from "@radix-ui/react-context-menu";
+import { DockviewPanelApi } from "dockview";
+import { useContext } from "react";
+import { SquareContext } from "@/app/userInterface/squares/SquareContentWrapper";
 
 export function EmptyEditor(props: BodyEditorProps) {
   const data = useAppSelector(selectPanelData(props.id));
@@ -46,8 +49,16 @@ export function EmptyEditor(props: BodyEditorProps) {
 }
 
 function NoEditorsConfigured({ panelId }: { panelId: string }) {
+  const { api } = useContext(SquareContext);
   const onClick = () => {
     squaresService.transformSquare(panelId, BodyEditorId.settings);
+    if (api) {
+      squaresService.renameSquare(
+        panelId,
+        squaresService.uniquifySquareName("settings"),
+        api
+      );
+    }
   };
 
   return (

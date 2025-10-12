@@ -24,7 +24,7 @@ export class SquaresService {
     if (!this.dockViewApi) return;
     const newPanelId = uuidv4();
     const newDataId = uuidv4();
-    const newPanelName = "settings";
+    const newPanelName = this.uniquifySquareName("settings");
     store.dispatch(
       addPanel({
         id: newPanelId,
@@ -45,7 +45,7 @@ export class SquaresService {
   addSquare = (props: IDockviewHeaderActionsProps) => {
     const newPanelId = uuidv4();
     // TODO: find a unique new tab name
-    const newPanelName = "New Tab";
+    const newPanelName = this.uniquifySquareName("New Tab");
     props.containerApi.addPanel({
       id: newPanelId,
       component: "default",
@@ -76,6 +76,26 @@ export class SquaresService {
     }
 
     return false;
+  };
+  uniquifySquareName = (name: string) => {
+    const nameExists = store
+      .getState()
+      .squares.panelData.some((p) => p.title == name);
+
+    if (!nameExists) return name;
+
+    let inc = 1;
+    while (true) {
+      const incName = `${name} (${inc})`;
+      const incNameExists = store
+        .getState()
+        .squares.panelData.some((p) => p.title == incName);
+
+      if (!incNameExists) {
+        return incName;
+      }
+      inc += 1;
+    }
   };
   dupeSquare = (panelApi: DockviewPanelApi, containerApi: DockviewApi) => {
     const newPanelId = uuidv4();
