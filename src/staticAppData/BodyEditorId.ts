@@ -7,5 +7,5 @@ export enum BodyEditorId {
   settings = "settings",
   json = "json",
   keepawake = "keepawake",
-  jpath = "jpath"
+  jpath = "jpath",
 }

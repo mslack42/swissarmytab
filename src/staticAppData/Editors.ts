@@ -3,7 +3,7 @@ import { Editor } from "./Editor";
 import { Json } from "./Editors/Json";
 import { Text } from "./Editors/Text";
 import { KeepAwake } from "./Editors/NoSleep";
-import { Jpath } from "./Editors/JPath"
+import { Jpath } from "./Editors/JPath";
 
 type Editors = {
   [key in BodyEditorId]?: Editor;

@@ -6,7 +6,6 @@ import { squaresService } from "@/store/services/squaresService";
 import { selectPanelData } from "@/store/redux/slices/squaresSlice";
 import { EditorIcon } from "./EditorIcon";
 import { Separator } from "@radix-ui/react-context-menu";
-import { DockviewPanelApi } from "dockview";
 import { useContext } from "react";
 import { SquareContext } from "@/app/userInterface/squares/SquareContentWrapper";
 
@@ -56,7 +55,7 @@ function NoEditorsConfigured({ panelId }: { panelId: string }) {
       squaresService.renameSquare(
         panelId,
         squaresService.uniquifySquareName("settings"),
-        api
+        api,
       );
     }
   };

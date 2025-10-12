@@ -24,5 +24,5 @@ export const BodyTriage: Partial<{
   plaintext: PlaintextEditor,
   json: JsonEditor,
   keepawake: NoSleepEditor,
-  jpath: JpathEditor
+  jpath: JpathEditor,
 };

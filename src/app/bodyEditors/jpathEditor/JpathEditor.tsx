@@ -16,10 +16,10 @@ export function JpathEditor(props: BodyEditorProps) {
   const panelData = useAppSelector(selectPanelData(props.id));
   const data = dataService.getData(panelData!.dataId);
   const [bodyText, setBodyText] = useState(
-    data?.dataType == "text" ? data.content : ""
+    data?.dataType == "text" ? data.content : "",
   );
   const [resultText, setResultText] = useState(
-    "// Jpath results will display here"
+    "// Jpath results will display here",
   );
   const [jpath, setJpath] = useState("");
 

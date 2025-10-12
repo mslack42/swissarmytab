@@ -78,7 +78,7 @@ export function SquareTabHeader(props: IDockviewPanelHeaderProps) {
     const renamed = squaresService.renameSquare(props.api.id, name, props.api);
     if (!renamed) {
       alert(
-        "Toast for failure later - do something with errors to say that tab already exists with that name"
+        "Toast for failure later - do something with errors to say that tab already exists with that name",
       );
     }
   }

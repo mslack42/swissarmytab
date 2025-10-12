@@ -10,7 +10,7 @@ export function JsonEditor(props: BodyEditorProps) {
   const panelData = useAppSelector(selectPanelData(props.id));
   const data = dataService.getData(panelData!.dataId);
   const [bodyText, setBodyText] = useState(
-    data?.dataType == "text" ? data.content : ""
+    data?.dataType == "text" ? data.content : "",
   );
 
   useEffect(() => {

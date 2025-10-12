@@ -10,7 +10,7 @@ const reducer = {
   squares: squaresReducer,
   editorConfigs: editorConfigReducer,
   textStorage: textStorageReducer,
-  dataStorage: dataStorageReducer
+  dataStorage: dataStorageReducer,
 };
 // Increment this key whenever breaking changes are made to the local storage
 const persistConfig = {
