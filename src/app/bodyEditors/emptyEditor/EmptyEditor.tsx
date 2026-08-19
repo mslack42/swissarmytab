@@ -7,7 +7,7 @@ import { selectPanelData } from "@/store/redux/slices/squaresSlice";
 import { EditorIcon } from "./EditorIcon";
 import { Separator } from "@radix-ui/react-context-menu";
 import { useContext } from "react";
-import { SquareContext } from "@/app/userInterface/squares/SquareContentWrapper";
+import { SquareContext } from "@/app/userInterface/squares/SquareContext";
 
 export function EmptyEditor(props: BodyEditorProps) {
   const data = useAppSelector(selectPanelData(props.id));

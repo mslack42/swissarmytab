@@ -128,6 +128,7 @@ export function SquaresView({
       removePanelDisposable.dispose();
       removeGroupDisposable.dispose();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [api]);
 
   useEffect(() => {
@@ -160,7 +161,7 @@ export function SquaresView({
 
     try {
       api.fromJSON(defaultPanelConfig);
-    } catch (e) {
+    } catch {
       alert(
         "Failed to load panels, and graceful handling for this has not been implemented yet",
       );

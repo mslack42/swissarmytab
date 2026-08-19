@@ -26,5 +26,5 @@ export const BodyTriage: Partial<{
   json: JsonEditor,
   keepawake: KeepAwakeEditor,
   jpath: JpathEditor,
-  qr: QREditor
+  qr: QREditor,
 };

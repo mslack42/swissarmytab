@@ -39,14 +39,14 @@ export function JpathEditor(props: BodyEditorProps) {
     let jsonObj;
     try {
       jsonObj = JSON.parse(bodyText);
-    } catch (e) {
+    } catch {
       setResultText("// Enter a valid json");
       return;
     }
     try {
       const resultObj = jsonpath.query(jsonObj, jpath);
       setResultText(beautify(JSON.stringify(resultObj)));
-    } catch (e) {
+    } catch {
       setResultText("// Invalid Jpath");
     }
   }, [bodyText, jpath]);

@@ -1,6 +1,7 @@
 import { IDockviewPanelProps } from "dockview";
+import { SquareContextProvider } from "./SquareContextProvider";
 
-type SquareContentProps = React.PropsWithChildren & IDockviewPanelProps;
+export type SquareContentProps = React.PropsWithChildren & IDockviewPanelProps;
 
 export function SquareContentWrapper(props: SquareContentProps) {
   return (
@@ -11,14 +12,3 @@ export function SquareContentWrapper(props: SquareContentProps) {
     </div>
   );
 }
-
-import { createContext } from "react";
-export const SquareContext = createContext<Partial<IDockviewPanelProps>>({});
-
-export const SquareContextProvider = (props: SquareContentProps) => {
-  return (
-    <SquareContext.Provider value={props}>
-      {props.children}
-    </SquareContext.Provider>
-  );
-};

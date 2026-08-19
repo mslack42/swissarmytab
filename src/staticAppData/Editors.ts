@@ -15,5 +15,5 @@ export const Editors: Editors = {
   jpath: Jpath,
   plaintext: Text,
   keepawake: KeepAwake,
-  qr: QR
+  qr: QR,
 };

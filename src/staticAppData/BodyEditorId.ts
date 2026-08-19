@@ -8,5 +8,5 @@ export enum BodyEditorId {
   json = "json",
   keepawake = "keepawake",
   jpath = "jpath",
-  qr = "qr"
+  qr = "qr",
 }
