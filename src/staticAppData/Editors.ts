@@ -4,6 +4,7 @@ import { Json } from "./Editors/Json";
 import { Text } from "./Editors/Text";
 import { KeepAwake } from "./Editors/NoSleep";
 import { Jpath } from "./Editors/JPath";
+import { QR } from "./Editors/Qr";
 
 type Editors = {
   [key in BodyEditorId]?: Editor;
@@ -14,4 +15,5 @@ export const Editors: Editors = {
   jpath: Jpath,
   plaintext: Text,
   keepawake: KeepAwake,
+  qr: QR
 };

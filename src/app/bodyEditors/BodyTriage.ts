@@ -1,4 +1,4 @@
-import { PlaintextEditor } from "@/app/bodyEditors/plaintext/PlaintextEditor";
+import { PlaintextEditor } from "@/app/bodyEditors/plaintextEditor/PlaintextEditor";
 import { EmptyEditor } from "@/app/bodyEditors/emptyEditor/EmptyEditor";
 import { JSX } from "react";
 import { BodyEditorProps } from "../userInterface/squares/SquareBodyTriageComponent";
@@ -10,6 +10,7 @@ import { ContextMenuConfig } from "./configurationEditors/contextMenuConfig/cont
 import { About } from "./configurationEditors/about/About";
 import { JsonEditor } from "./jsonEditor/JsonEditor";
 import { JpathEditor } from "./jpathEditor/JpathEditor";
+import { QREditor } from "./qrEditor/QREditor";
 
 export const BodyTriage: Partial<{
   [key in BodyEditorId]: (props: BodyEditorProps) => JSX.Element;
@@ -25,4 +26,5 @@ export const BodyTriage: Partial<{
   json: JsonEditor,
   keepawake: KeepAwakeEditor,
   jpath: JpathEditor,
+  qr: QREditor
 };

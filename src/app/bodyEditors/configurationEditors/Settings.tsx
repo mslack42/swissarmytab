@@ -1,7 +1,7 @@
 import { BodyEditorProps } from "@/app/userInterface/squares/SquareBodyTriageComponent";
 import { BodyEditorId } from "@/staticAppData/BodyEditorId";
 import { squaresService } from "@/store/services/squaresService";
-import { CircleHelp, FileCog, Rat } from "lucide-react";
+import { CircleHelp, FileCog, QrCode, Rat } from "lucide-react";
 import { JSX } from "react";
 
 type SettingsIconMap = Partial<{
@@ -14,6 +14,7 @@ const settingsIconMap: SettingsIconMap = {
   editorConfig: <FileCog size={iconSize} />,
   contextMenuConfig: <Rat size={iconSize} />,
   about: <CircleHelp size={iconSize} />,
+  qr: <QrCode size={iconSize} />,
 };
 
 type SettingsButtonProps = {

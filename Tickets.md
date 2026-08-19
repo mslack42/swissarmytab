@@ -9,7 +9,6 @@
 - XML (and the conversion to/from JSON) (L)
 - Markdown (L)
 - Stopwatch, timers, etc. (L)
-- QR code generation (L)
 - RNG (L)
 - Epoch timestamp stuff (L)
 - Timezone stuff (XL)
@@ -28,8 +27,9 @@
 ## Other features
 
 - Initial set-up for context menu configurability and application (XXXL)
-- Data storage editor (XXXL)
+- Data storage editor (XXXL) - opens from top bar
 - Set up toaster (L)
+- Generic solution that compares tab data to storage data; in the case of mismatch, warn the user
 
 ## Misc.
 
@@ -39,3 +39,4 @@
 - Keep Awake text-hiding for the script example, and copy-to-clipboard functionality
 - New user welcome features
 - Beta features user flag
+- Buttons should be buttons everywhere, with anims
