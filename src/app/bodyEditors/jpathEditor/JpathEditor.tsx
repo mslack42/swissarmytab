@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/resizable";
 import jsonpath from "jsonpath";
 import { beautify } from "../jsonEditor/functions";
+import { useDebouncedEffect } from "@/lib/debounce";
 
 export function JpathEditor(props: BodyEditorProps) {
   const panelData = useAppSelector(selectPanelData(props.id));
@@ -23,7 +24,7 @@ export function JpathEditor(props: BodyEditorProps) {
   );
   const [jpath, setJpath] = useState("");
 
-  useEffect(() => {
+  useDebouncedEffect(() => {
     dataService.updateData(panelData!.dataId!, {
       dataType: "text",
       content: bodyText,

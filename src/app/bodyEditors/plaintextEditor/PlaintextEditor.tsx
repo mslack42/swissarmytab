@@ -1,9 +1,10 @@
 import { useAppSelector } from "@/store/redux/hooks";
 import { selectPanelData } from "@/store/redux/slices/squaresSlice";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { dataService } from "@/store/services/dataService";
 import { Textarea } from "@/components/ui/textarea";
 import { BodyEditorProps } from "../../userInterface/squares/SquareBodyTriageComponent";
+import { useDebouncedEffect } from "@/lib/debounce";
 
 export function PlaintextEditor(props: BodyEditorProps) {
   const panelData = useAppSelector(selectPanelData(props.id));
@@ -12,7 +13,7 @@ export function PlaintextEditor(props: BodyEditorProps) {
     data?.dataType == "text" ? data.content : "",
   );
 
-  useEffect(() => {
+  useDebouncedEffect(() => {
     dataService.updateData(panelData!.dataId!, {
       dataType: "text",
       content: bodyText,

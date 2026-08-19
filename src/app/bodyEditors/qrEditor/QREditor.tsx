@@ -1,11 +1,12 @@
 import { useAppSelector } from "@/store/redux/hooks";
 import { selectPanelData } from "@/store/redux/slices/squaresSlice";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { BodyEditorProps } from "@/app/userInterface/squares/SquareBodyTriageComponent";
 import { dataService } from "@/store/services/dataService";
 import { Textarea } from "@/components/ui/textarea";
 import QRCode from "react-qr-code";
 import * as htmlToImage from "html-to-image";
+import { useDebouncedEffect } from "@/lib/debounce";
 
 export function QREditor(props: BodyEditorProps) {
   const panelData = useAppSelector(selectPanelData(props.id));
@@ -14,12 +15,14 @@ export function QREditor(props: BodyEditorProps) {
     data?.dataType == "text" ? data.content : "",
   );
   const qrRef = useRef<HTMLDivElement>(null);
+  const [qrSource, setQrSource] = useState<string>(bodyText);
 
-  useEffect(() => {
+  useDebouncedEffect(() => {
     dataService.updateData(panelData!.dataId!, {
       dataType: "text",
       content: bodyText,
     });
+    setQrSource(bodyText);
   }, [bodyText, panelData]);
 
   const ActionButton = ({ text, fn }: { text: string; fn: () => void }) => (
@@ -94,7 +97,7 @@ export function QREditor(props: BodyEditorProps) {
               ) : (
                 <div ref={qrRef}>
                   <QRCode
-                    value={bodyText}
+                    value={qrSource}
                     style={{ height: "auto", maxWidth: "100%", width: "100%" }}
                   />
                 </div>
