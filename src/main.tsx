@@ -6,6 +6,11 @@ import store from "./store/redux/store.ts";
 import { Provider } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router";
 // import { TestBodyEditor } from "./app/dev/TestBodyEditor.tsx";
+import { registerSW } from "virtual:pwa-register";
+
+registerSW({
+  immediate: true,
+});
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
