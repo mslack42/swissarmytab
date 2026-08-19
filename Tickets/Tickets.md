@@ -1,3 +1,5 @@
+(I'll probably split each of these into their own md files, and delete as each one is implemented)
+
 ## Editors
 
 - Diff check (L)
@@ -40,3 +42,8 @@
 - New user welcome features
 - Beta features user flag
 - Buttons should be buttons everywhere, with anims
+
+## PWA features
+
+Install button
+Update Banner
